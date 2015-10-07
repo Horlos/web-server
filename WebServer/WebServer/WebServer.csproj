@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,8 +52,11 @@
     <Compile Include="Headers\ConnectionHeader.cs" />
     <Compile Include="Headers\ContentTypeHeader.cs" />
     <Compile Include="Headers\HeaderCollection.cs" />
+    <Compile Include="Headers\HeaderFactory.cs" />
     <Compile Include="Headers\HeaderIterator.cs" />
     <Compile Include="Headers\NumericHeader.cs" />
+    <Compile Include="Helpers\UrlParser.cs" />
+    <Compile Include="Infrastructure\Aggregate.Generic.cs" />
     <Compile Include="Infrastructure\IAggregate.cs" />
     <Compile Include="HttpFactory.cs" />
     <Compile Include="HttpListener.cs" />
@@ -62,12 +66,16 @@
     <Compile Include="Infrastructure\IIterator.cs" />
     <Compile Include="IHttpFactory.cs" />
     <Compile Include="IHttpListener.cs" />
+    <Compile Include="Infrastructure\Iterator.Generic.cs" />
     <Compile Include="IRequest.cs" />
     <Compile Include="IResponse.cs" />
     <Compile Include="IMessage.cs" />
     <Compile Include="Parameters\IParameter.cs" />
     <Compile Include="Parameters\IParameterCollection.cs" />
+    <Compile Include="Parameters\Parameter.cs" />
+    <Compile Include="Parameters\ParameterCollection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request.cs" />
     <Compile Include="RequestMethodType.cs" />
   </ItemGroup>
   <ItemGroup>

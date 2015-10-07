@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections;
 using WebServer.Infrastructure;
 
 namespace WebServer.Headers
 {
-    public class HeaderIterator: IIterator<IHeader>
+    public class HeaderIterator : IIterator<IHeader>
     {
         private HeaderCollection _headerCollection;
 
@@ -16,17 +13,20 @@ namespace WebServer.Headers
             _headerCollection = headerCollection;
         }
 
-        public IHeader First()
+        public IHeader First { get; }
+
+        public IHeader Last { get; }
+
+        public IHeader Next { get; }
+
+        public IHeader Current { get; }
+
+        object IEnumerator.Current
         {
-            throw new NotImplementedException();
+            get { return Current; }
         }
 
-        public IHeader Next()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IHeader Current()
+        public bool MoveNext()
         {
             throw new NotImplementedException();
         }

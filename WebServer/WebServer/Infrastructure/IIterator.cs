@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace WebServer.Infrastructure
 {
@@ -6,29 +7,24 @@ namespace WebServer.Infrastructure
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IIterator<out T> : IDisposable
+    public interface IIterator<out T> : IEnumerator<T>
     {
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        T First();
+        T First { get; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        T Current();
+        T Last { get; }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        T Next();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        void Reset();
+        T Next { get; }
     }
 }

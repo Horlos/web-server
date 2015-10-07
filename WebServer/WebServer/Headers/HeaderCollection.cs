@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,8 +10,19 @@ namespace WebServer.Headers
 {
     public class HeaderCollection: IHeaderCollection
     {
+        private readonly HeaderFactory _factory;
+
         private readonly Dictionary<string, IHeader> _headers =
             new Dictionary<string, IHeader>(StringComparer.OrdinalIgnoreCase);
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HeaderCollection"/> class.
+        /// </summary>
+        /// <param name="factory">Factory used to created headers.</param>
+        public HeaderCollection(HeaderFactory factory)
+        {
+            _factory = factory;
+        }
 
         /// <summary>
         /// Add a header.
@@ -69,5 +81,23 @@ namespace WebServer.Headers
         }
 
         #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerator<IHeader> GetEnumerator()
+        {
+            return GetIterator();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

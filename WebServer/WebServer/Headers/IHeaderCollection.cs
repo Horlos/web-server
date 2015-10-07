@@ -5,7 +5,7 @@ namespace WebServer.Headers
     /// <summary>
     /// Collection of headers.
     /// </summary>
-    public interface IHeaderCollection:IAggregate<IHeader>
+    public interface IHeaderCollection : IAggregate<IHeader>
     {
         /// <summary>
         /// Gets a header

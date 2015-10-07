@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WebServer.Cookies;
 using WebServer.Headers;
 using WebServer.Parameters;
@@ -25,6 +21,11 @@ namespace WebServer
         /// Gets or sets HTTP method.
         /// </summary>
         RequestMethodType Method { get; set; }
+
+        /// <summary>
+        /// Gets query string and form parameters
+        /// </summary>
+        IParameterCollection Parameters { get; }
 
         /// <summary>
         /// Gets query string.
