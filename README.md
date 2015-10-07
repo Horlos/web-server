@@ -10,6 +10,7 @@ This is test project of simple web-server
 	</thead>
 	<tbody>
 		<tr>
+			<td>Web server</td>
 			<td align="left">
 				<a href="https://ci.appveyor.com/project/Xharze/nlog-134/branch/master">
 					<img src="https://ci.appveyor.com/api/projects/status/tiqnuwbdhtnyjvi2?svg=true" alt="AppVeyor" data-canonical-src="https://img.shields.io/appveyor/ci/Xharze/nlog-134/master.svg" style="max-width:100%;">
