@@ -39,6 +39,13 @@ namespace WebServer.Parameters
         /// </summary>
         public int Count { get { return _items.Count; } }
 
+        public IParameter[] Items { get; set; }
+
+        IParameter IAggregate<IParameter>.this[int i]
+        {
+            get { throw new NotImplementedException(); }
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -98,7 +105,7 @@ namespace WebServer.Parameters
         /// <returns></returns>
         public IIterator<IParameter> GetIterator()
         {
-            return new Iterator<IParameter>();
+            return new Iterator<IParameter>(this);
         }
 
         /// <summary>

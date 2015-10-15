@@ -49,9 +49,6 @@ namespace WebServer
         /// Start listener.
         /// </summary>
         /// <param name="backLog">Number of pending accepts.</param>
-        /// <remarks>
-        /// Make sure that you are subscribing on <see cref="RequestReceived"/> first.
-        /// </remarks>
         /// <exception cref="InvalidOperationException">Listener have already been started.</exception>
         /// <exception cref="SocketException">Failed to start socket.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Invalid port number.</exception>

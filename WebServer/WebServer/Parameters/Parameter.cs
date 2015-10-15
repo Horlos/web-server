@@ -48,7 +48,15 @@ namespace WebServer.Parameters
         /// <returns></returns>
         public IIterator<string> GetIterator()
         {
-            return new Iterator<string>();
+            return new Iterator<string>(this);
+        }
+
+        public int Count { get { return _values.Count; } }
+        public string[] Items { get; set; }
+
+        public string this[int i]
+        {
+            get { throw new System.NotImplementedException(); }
         }
 
         /// <summary>

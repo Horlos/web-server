@@ -4,10 +4,6 @@ namespace WebServer.Parameters
 {
     public interface IParameterCollection : IAggregate<IParameter>
     {
-        /// <summary>
-        /// Gets number of parameters.
-        /// </summary>
-        int Count { get; }
 
         /// <summary>
         /// Gets last value of an parameter.

@@ -8,7 +8,7 @@ using WebServer.Infrastructure;
 
 namespace WebServer.Headers
 {
-    public class HeaderCollection: IHeaderCollection
+    public class HeaderCollection : IHeaderCollection
     {
         private readonly HeaderFactory _factory;
 
@@ -48,6 +48,14 @@ namespace WebServer.Headers
         public IIterator<IHeader> GetIterator()
         {
             return new HeaderIterator(this);
+        }
+
+        public int Count { get; }
+        public IHeader[] Items { get { return _headers.Values.ToArray(); } }
+
+        IHeader IAggregate<IHeader>.this[int i]
+        {
+            get { return Items[i]; }
         }
 
         public IHeader this[string name]

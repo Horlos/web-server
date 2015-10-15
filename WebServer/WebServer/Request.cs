@@ -14,7 +14,7 @@ namespace WebServer
     /// <summary>
     /// 
     /// </summary>
-    public class Request:IRequest, IDisposable
+    public class Request : IRequest, IDisposable
     {
         private readonly HeaderCollection _headers;
         private NumericHeader _contentLength = new NumericHeader("Content-Length", 0);
@@ -90,6 +90,14 @@ namespace WebServer
         public IIterator<IHeader> GetIterator()
         {
             return _headers.GetIterator();
+        }
+
+        public int Count { get; }
+        public IHeader[] Items { get; set; }
+
+        public IHeader this[int i]
+        {
+            get { throw new NotImplementedException(); }
         }
 
         public IEnumerator<IHeader> GetEnumerator()

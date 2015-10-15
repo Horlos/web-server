@@ -6,12 +6,21 @@ namespace WebServer.Infrastructure
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IAggregate<out T> : IEnumerable<T>
+    public interface IAggregate<T> : IEnumerable<T>
     {
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         IIterator<T> GetIterator();
+
+        /// <summary>
+        /// Gets number of parameters.
+        /// </summary>
+        int Count { get; }
+
+        T[] Items { get; }
+
+        T this[int i] { get; }
     }
 }
