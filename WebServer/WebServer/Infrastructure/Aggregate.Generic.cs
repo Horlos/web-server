@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-
-namespace WebServer.Infrastructure
+﻿namespace WebServer.Infrastructure
 {
+    using System.Collections;
+    using System.Collections.Generic;
+
     /// <summary>
     /// 
     /// </summary>
@@ -16,35 +16,58 @@ namespace WebServer.Infrastructure
             _items = new T[size];
         }
 
-        public T[] Items { get { return _items; } }
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual T[] Items { get { return _items; } }
 
-        public int Count { get { return _items.Length; } }
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual int Count { get { return _items.Length; } }
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        public IIterator<T> GetIterator()
+        public virtual IIterator<T> GetIterator()
         {
             return new Iterator<T>(this);
         }
 
-        public T this[int index]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public virtual T this[int index]
         {
             get { return _items[index]; }
             set { Add(value); }
         }
 
-        public void Add(T item)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="item"></param>
+        public virtual void Add(T item)
         {
             throw new System.NotImplementedException();
         }
 
-        public IEnumerator<T> GetEnumerator()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public virtual IEnumerator<T> GetEnumerator()
         {
             return GetIterator();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

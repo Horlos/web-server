@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using WebServer.Cookies;
-using WebServer.Headers;
-using WebServer.Helpers;
-using WebServer.Infrastructure;
-using WebServer.Parameters;
-
-namespace WebServer
+﻿namespace WebServer
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using Cookies;
+    using Headers;
+    using Helpers;
+    using Infrastructure;
+    using Parameters;
+
     /// <summary>
     /// 
     /// </summary>
@@ -50,69 +50,200 @@ namespace WebServer
             Uri = new Uri("http://not.specified.yet" + path);
         }
 
-        public Stream Body { get; }
+        /// <summary>
+        /// Gets body stream.
+        /// </summary>
+        public Stream Body { get; private set; }
 
-        public NumericHeader ContentLength { get; }
+        /// <summary>
+        /// Size of the body. MUST be specified before sending the header,
+        /// unless property Chunked is set to <c>true</c>.
+        /// </summary>
+        /// <value>
+        /// Any specifically assigned value or Body stream length.
+        /// </value>
+        public NumericHeader ContentLength
+        {
+            get
+            {
+                if (Body.Length > 0)
+                    _contentLength.Value = Body.Length;
+                return _contentLength;
+            }
+            set
+            {
+                _contentLength = value;
 
+
+                if (_contentLength.Value <= 2000000)
+                    return;
+
+                _bodyFileName = Path.GetTempFileName();
+                Body = new FileStream(_bodyFileName, FileMode.CreateNew);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ContentTypeHeader ContentType { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Encoding Encoding { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IHeaderCollection Headers { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
         public void Add(string name, IHeader value)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="header"></param>
         public void Add(IHeader header)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public string HttpVersion { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public Uri Uri { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public RequestMethodType Method { get; set; }
 
-        public IParameterCollection Parameters { get; }
+        /// <summary>
+        /// Gets query string and form parameters
+        /// </summary>
+        public IParameterCollection Parameters { get; internal set; }
 
+        /// <summary>
+        /// Gets form parameters.
+        /// </summary>
+        public IParameterCollection Form
+        {
+            get { return _form; }
+            internal set
+            {
+                _form = value;
+
+                Parameters = new ParameterCollection(QueryString, _form);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public IParameterCollection QueryString { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsAjax { get; }
 
-        public RequestCookieCollection Cookies { get; }
+        /// <summary>
+        /// Gets cookies.
+        /// </summary>
+        public RequestCookieCollection Cookies
+        {
+            get { return _cookies ?? (_cookies = new RequestCookieCollection()); }
 
+            private set { _cookies = value; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public ConnectionHeader Connection { get; }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IIterator<IHeader> GetIterator()
         {
             return _headers.GetIterator();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public int Count { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public IHeader[] Items { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         public IHeader this[int i]
         {
-            get { throw new NotImplementedException(); }
+            get { return _headers.Items[i]; }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IEnumerator<IHeader> GetEnumerator()
         {
             return GetIterator();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }
 
+        #region IDisposable
+
+        private bool _isDisposed;
+
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
         }
+
+        private void Dispose(bool dispose)
+        {
+            if (!_isDisposed)
+            {
+                if (dispose)
+                {
+                    _isDisposed = true;
+                    GC.SuppressFinalize(this);
+                }
+            }
+        }
+
+        #endregion IDisposable
     }
 }

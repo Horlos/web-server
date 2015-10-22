@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using WebServer.Infrastructure;
-
-namespace WebServer.Parameters
+﻿namespace WebServer.Parameters
 {
+    using System.Collections.Generic;
+    using Infrastructure;
+
     /// <summary>
     /// 
     /// </summary>

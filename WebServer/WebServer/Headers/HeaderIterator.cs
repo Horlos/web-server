@@ -36,9 +36,27 @@ namespace WebServer.Headers
             throw new NotImplementedException();
         }
 
+        #region IDisposable
+
+        private bool _isDisposed;
+
         public void Dispose()
         {
-            throw new NotImplementedException();
+            Dispose(true);
         }
+
+        private void Dispose(bool dispose)
+        {
+            if (!_isDisposed)
+            {
+                if (dispose)
+                {
+                    _isDisposed = true;
+                    GC.SuppressFinalize(this);
+                }
+            }
+        }
+
+        #endregion IDisposable
     }
 }

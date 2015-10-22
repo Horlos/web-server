@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Net.Sockets;
-using System.Net;
-using NLog;
 
 namespace WebServer
 {
+    using System.Net;
+    using NLog;
+
     /// <summary>
     /// Http listener
     /// </summary>
@@ -14,26 +15,41 @@ namespace WebServer
         /// <summary>
         /// Gets listener address.
         /// </summary>
+        /// <value>
+        /// 
+        /// </value> 
         IPAddress Address { get; }
 
         /// <summary>
         /// Gets if listener is secure.
         /// </summary>
+        /// <value>
+        /// 
+        /// </value>
         bool IsSecure { get; }
 
         /// <summary>
         /// Gets if listener have been started.
         /// </summary>
+        /// <value>
+        /// 
+        /// </value>
         bool IsStarted { get; }
 
         /// <summary>
         /// Gets or sets logger.
         /// </summary>
+        /// <value>
+        /// 
+        /// </value>
         ILogger Logger { get; set; }
 
         /// <summary>
         /// Gets listening port.
         /// </summary>
+        /// <value>
+        /// 
+        /// </value>
         int Port { get; }
 
         /// <summary>
@@ -43,6 +59,9 @@ namespace WebServer
         /// <remarks>
         /// Used when responding to 100-continue.
         /// </remarks>
+        /// <value>
+        /// 
+        /// </value>
         int ContentLengthLimit { get; set; }
 
         /// <summary>

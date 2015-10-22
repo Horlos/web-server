@@ -56,7 +56,7 @@ namespace WebServer.Parameters
 
         public string this[int i]
         {
-            get { throw new System.NotImplementedException(); }
+            get { return _values[i]; }
         }
 
         /// <summary>

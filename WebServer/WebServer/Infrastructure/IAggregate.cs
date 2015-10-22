@@ -6,7 +6,7 @@ namespace WebServer.Infrastructure
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IAggregate<T> : IEnumerable<T>
+    public interface IAggregate<out T> : IEnumerable<T>
     {
         /// <summary>
         /// 
