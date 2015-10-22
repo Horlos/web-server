@@ -86,7 +86,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public ContentTypeHeader ContentType { get {return new ContentTypeHeader();} }
+        public ContentTypeHeader ContentType { get { return new ContentTypeHeader(); } }
 
         /// <summary>
         /// 
@@ -154,7 +154,11 @@
         /// <summary>
         /// 
         /// </summary>
-        public IParameterCollection QueryString { get; }
+        public IParameterCollection QueryString
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// 
@@ -174,7 +178,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public ConnectionHeader Connection { get {return new ConnectionHeader();} }
+        public ConnectionHeader Connection { get { return new ConnectionHeader(); } }
 
         /// <summary>
         /// 
