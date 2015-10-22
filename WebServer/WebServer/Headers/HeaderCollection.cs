@@ -2,8 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WebServer.Infrastructure;
 
 namespace WebServer.Headers
@@ -37,7 +35,7 @@ namespace WebServer.Headers
         {
             if (name == null)
                 throw new ArgumentNullException("name");
-            if (value?.Name == null)
+            if (value == null || value.Name == null)
                 throw new ArgumentNullException("value");
 
             _headers[name] = value;

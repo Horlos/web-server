@@ -21,7 +21,7 @@
             string temp = reader.ReadToEnd();
             int value;
             if (!int.TryParse(temp, out value))
-                throw new FormatException($"Header '{name}' do not contain a numerical value ('{temp}').");
+                throw new FormatException(string.Format("Header '{0}' do not contain a numerical value ('{1}').", name, temp));
             return new NumericHeader(name, value);
         }
     }
