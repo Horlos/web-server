@@ -13,13 +13,13 @@ namespace WebServer.Headers
             _headerCollection = headerCollection;
         }
 
-        public IHeader First { get; }
+        public IHeader First { get {return new ConnectionHeader();} }
 
-        public IHeader Last { get; }
+        public IHeader Last { get { return new ConnectionHeader(); } }
 
-        public IHeader Next { get; }
+        public IHeader Next { get { return new ConnectionHeader(); } }
 
-        public IHeader Current { get; }
+        public IHeader Current { get { return new ConnectionHeader(); } }
 
         object IEnumerator.Current
         {
@@ -28,7 +28,7 @@ namespace WebServer.Headers
 
         public bool MoveNext()
         {
-            throw new NotImplementedException();
+            return default(bool);
         }
 
         public void Reset()

@@ -48,7 +48,10 @@ namespace WebServer.Headers
             return new HeaderIterator(this);
         }
 
-        public int Count { get; }
+        public int Count
+        {
+            get { return _headers.Count; }
+        }
         public IHeader[] Items { get { return _headers.Values.ToArray(); } }
 
         IHeader IAggregate<IHeader>.this[int i]

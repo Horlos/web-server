@@ -86,7 +86,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public ContentTypeHeader ContentType { get; }
+        public ContentTypeHeader ContentType { get {return new ContentTypeHeader();} }
 
         /// <summary>
         /// 
@@ -96,7 +96,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public IHeaderCollection Headers { get; }
+        public IHeaderCollection Headers { get { return _headers; } }
 
         /// <summary>
         /// 
@@ -159,7 +159,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public bool IsAjax { get; }
+        public bool IsAjax { get { return default(bool); } }
 
         /// <summary>
         /// Gets cookies.
@@ -174,7 +174,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public ConnectionHeader Connection { get; }
+        public ConnectionHeader Connection { get {return new ConnectionHeader();} }
 
         /// <summary>
         /// 
@@ -188,7 +188,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public int Count { get; }
+        public int Count { get { return _headers.Count; } }
 
         /// <summary>
         /// 

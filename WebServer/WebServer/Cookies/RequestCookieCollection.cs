@@ -22,7 +22,7 @@
         /// <summary>
         /// 
         /// </summary>
-        public override RequestCookie[] Items { get; }
+        public override RequestCookie[] Items { get { return _items.Values.ToArray(); } }
 
         /// <summary>
         /// 

@@ -8,11 +8,11 @@
         /// <summary>
         /// 
         /// </summary>
-        public string Name { get; }
+        public string Name { get { return "Connection"; } }
 
         /// <summary>
         /// 
         /// </summary>
-        public string HeaderValue { get; }
+        public string HeaderValue { get { return default(string); } }
     }
 }
