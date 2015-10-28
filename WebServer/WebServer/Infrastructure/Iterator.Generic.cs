@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections;
-
-namespace WebServer.Infrastructure
+﻿namespace Webserver.Infrastructure
 {
+    using System;
+    using System.Collections;
+
     public class Iterator<T> : IIterator<T> where T : class
     {
         private IAggregate<T> _collection;
         private int _currentIndex = 0;
         private int _step = 1;
+        private bool _isDisposed;
 
         public Iterator(IAggregate<T> collection)
         {
@@ -67,7 +68,6 @@ namespace WebServer.Infrastructure
             }
         }
 
-
         public bool MoveNext()
         {
             _currentIndex++;
@@ -81,13 +81,10 @@ namespace WebServer.Infrastructure
             _currentIndex = 0;
         }
 
-        #region IDisposable
-
-        private bool _isDisposed;
-
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         private void Dispose(bool dispose)
@@ -97,12 +94,8 @@ namespace WebServer.Infrastructure
                 if (dispose)
                 {
                     _isDisposed = true;
-                    GC.SuppressFinalize(this);
                 }
             }
         }
-
-        #endregion IDisposable
-
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace WebServer.Headers
+﻿namespace Webserver.Headers
 {
     /// <summary>
     /// 
@@ -8,11 +8,17 @@
         /// <summary>
         /// 
         /// </summary>
-        public string Name { get { return "Connection"; } }
+        public string Name
+        {
+            get { return "Connection"; }
+        }
 
         /// <summary>
         /// 
         /// </summary>
-        public string HeaderValue { get { return default(string); } }
+        public string HeaderValue
+        {
+            get { return default(string); }
+        }
     }
 }

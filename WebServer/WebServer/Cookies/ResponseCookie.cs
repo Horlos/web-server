@@ -1,4 +1,4 @@
-﻿namespace WebServer.Cookies
+﻿namespace Webserver.Cookies
 {
     /// <summary>
     /// Cookie being sent back to the browser.

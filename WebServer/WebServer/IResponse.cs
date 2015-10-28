@@ -1,5 +1,6 @@
-﻿namespace WebServer
+﻿namespace Webserver
 {
+    using System;
     using System.Net;
     using Headers;
 
@@ -53,6 +54,6 @@
         /// <remarks>
         /// Any modifications after a redirect will be ignored.
         /// </remarks>
-        void Redirect(string uri);
+        void Redirect(Uri uri);
     }
 }

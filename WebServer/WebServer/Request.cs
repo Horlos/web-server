@@ -1,4 +1,4 @@
-﻿namespace WebServer
+﻿namespace Webserver
 {
     using System;
     using System.Collections;
@@ -21,6 +21,7 @@
         private RequestCookieCollection _cookies;
         private IParameterCollection _form;
         private string _bodyFileName;
+        private bool _isDisposed;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Request"/> class.
@@ -35,18 +36,18 @@
             HttpVersion = version;
             Encoding = Encoding.UTF8;
 
-            // HttpFactory is not set during tests.
             HeaderFactory headerFactory = HttpFactory.Current == null
                                               ? new HeaderFactory()
-                                              : HttpFactory.Current.Get<HeaderFactory>();
+                                              : HttpFactory.Current.Create<HeaderFactory>();
 
             _headers = new HeaderCollection(headerFactory);
+            if (!string.IsNullOrEmpty(path))
+            {
+                int pos = path.IndexOf("?", StringComparison.Ordinal);
+                QueryString = pos != -1 ? UrlParser.Parse(path.Substring(pos + 1)) : new ParameterCollection();
+            }
 
-            // Parse query string.
-            int pos = path.IndexOf("?", StringComparison.Ordinal);
-            QueryString = pos != -1 ? UrlParser.Parse(path.Substring(pos + 1)) : new ParameterCollection();
-
-            Parameters = QueryString;
+            Parameters = QueryString ?? new ParameterCollection();
             Uri = new Uri("http://not.specified.yet" + path);
         }
 
@@ -70,10 +71,12 @@
                     _contentLength.Value = Body.Length;
                 return _contentLength;
             }
+
             set
             {
-                _contentLength = value;
+                if (value == null) return;
 
+                _contentLength = value;
 
                 if (_contentLength.Value <= 2000000)
                     return;
@@ -86,7 +89,10 @@
         /// <summary>
         /// 
         /// </summary>
-        public ContentTypeHeader ContentType { get { return new ContentTypeHeader(); } }
+        public ContentTypeHeader ContentType
+        {
+            get { return new ContentTypeHeader(); }
+        }
 
         /// <summary>
         /// 
@@ -96,25 +102,9 @@
         /// <summary>
         /// 
         /// </summary>
-        public IHeaderCollection Headers { get { return _headers; } }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name"></param>
-        /// <param name="value"></param>
-        public void Add(string name, IHeader value)
+        public IHeaderCollection Headers
         {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="header"></param>
-        public void Add(IHeader header)
-        {
-            throw new NotImplementedException();
+            get { return _headers; }
         }
 
         /// <summary>
@@ -142,11 +132,14 @@
         /// </summary>
         public IParameterCollection Form
         {
-            get { return _form; }
+            get
+            {
+                return _form;
+            }
+
             internal set
             {
                 _form = value;
-
                 Parameters = new ParameterCollection(QueryString, _form);
             }
         }
@@ -163,7 +156,10 @@
         /// <summary>
         /// 
         /// </summary>
-        public bool IsAjax { get { return default(bool); } }
+        public bool IsAjax
+        {
+            get { return default(bool); }
+        }
 
         /// <summary>
         /// Gets cookies.
@@ -178,21 +174,18 @@
         /// <summary>
         /// 
         /// </summary>
-        public ConnectionHeader Connection { get { return new ConnectionHeader(); } }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public IIterator<IHeader> GetIterator()
+        public ConnectionHeader Connection
         {
-            return _headers.GetIterator();
+            get { return new ConnectionHeader(); }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public int Count { get { return _headers.Count; } }
+        public int Count
+        {
+            get { return _headers.Count; }
+        }
 
         /// <summary>
         /// 
@@ -207,6 +200,34 @@
         public IHeader this[int i]
         {
             get { return _headers.Items[i]; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public void Add(string name, IHeader value)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="header"></param>
+        public void Add(IHeader header)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IIterator<IHeader> GetIterator()
+        {
+            return _headers.GetIterator();
         }
 
         /// <summary>
@@ -227,13 +248,10 @@
             return GetEnumerator();
         }
 
-        #region IDisposable
-
-        private bool _isDisposed;
-
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         private void Dispose(bool dispose)
@@ -243,11 +261,8 @@
                 if (dispose)
                 {
                     _isDisposed = true;
-                    GC.SuppressFinalize(this);
                 }
             }
         }
-
-        #endregion IDisposable
     }
 }

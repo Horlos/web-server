@@ -1,4 +1,4 @@
-﻿namespace WebServer.Parameters
+﻿namespace Webserver.Parameters
 {
     using System.Collections.Generic;
     using Infrastructure;
@@ -6,7 +6,7 @@
     /// <summary>
     /// 
     /// </summary>
-    public interface IParameter: IAggregate<string>
+    public interface IParameter : IAggregate<string>
     {
         /// <summary>
         /// Gets *last* value.

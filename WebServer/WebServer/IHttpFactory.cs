@@ -1,4 +1,4 @@
-﻿namespace WebServer
+﻿namespace Webserver
 {
     /// <summary>
     /// Get or create components used in the web server framework.
@@ -21,6 +21,6 @@
         /// <param name="constructorArguments">
         /// 
         /// </param>
-        T Get<T>(params object[] constructorArguments) where T : class;
+        T Create<T>(params object[] constructorArguments) where T : class;
     }
 }

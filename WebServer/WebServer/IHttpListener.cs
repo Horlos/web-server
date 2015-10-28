@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net.Sockets;
-
-namespace WebServer
+﻿namespace Webserver
 {
     using System.Net;
     using NLog;
@@ -11,7 +8,6 @@ namespace WebServer
     /// </summary>
     public interface IHttpListener
     {
-
         /// <summary>
         /// Gets listener address.
         /// </summary>
@@ -67,16 +63,15 @@ namespace WebServer
         /// <summary>
         /// Start listener.
         /// </summary>
-        /// <param name="backLog">Number of pending accepts.</param>
-        /// <exception cref="InvalidOperationException">Listener have already been started.</exception>
-        /// <exception cref="SocketException">Failed to start socket.</exception>
-        /// <exception cref="ArgumentOutOfRangeException">Invalid port number.</exception>
-        void Start(int backLog);
+        /// <param name="backlog">Number of pending accepts.</param>
+        /// <exception cref="System.InvalidOperationException">Listener have already been started.</exception>
+        /// <exception cref="System.Net.Sockets.SocketException">Failed to start socket.</exception>
+        /// <exception cref="System.ArgumentOutOfRangeException">Invalid port number.</exception>
+        void Start(int backlog);
 
         /// <summary>
         /// Stop listener.
         /// </summary>
         void Stop();
-
     }
 }

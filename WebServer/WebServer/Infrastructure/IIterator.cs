@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace WebServer.Infrastructure
+﻿namespace Webserver.Infrastructure
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// 
     /// </summary>

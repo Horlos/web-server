@@ -1,6 +1,14 @@
-﻿namespace WebServer
+﻿namespace Webserver
 {
     using System.Collections.Generic;
+
+    /// <summary>
+    /// Used to create new objects.
+    /// </summary>
+    /// <typeparam name="T">Type of objects to create.</typeparam>
+    /// <returns>Newly created object.</returns>
+    /// <seealso cref="ObjectPool{T}"/>.
+    public delegate T CreateHandler<out T>() where T : class;
 
     /// <summary>
     /// Flyweight design pattern implementation.
@@ -47,12 +55,4 @@
                 _items.Enqueue(value);
         }
     }
-
-    /// <summary>
-    /// Used to create new objects.
-    /// </summary>
-    /// <typeparam name="T">Type of objects to create.</typeparam>
-    /// <returns>Newly created object.</returns>
-    /// <seealso cref="ObjectPool{T}"/>.
-    public delegate T CreateHandler<out T>() where T : class;
 }

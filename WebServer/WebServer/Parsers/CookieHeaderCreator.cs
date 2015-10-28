@@ -1,4 +1,4 @@
-﻿namespace WebServer.Parsers
+﻿namespace Webserver.Parsers
 {
     using Cookies;
     using Headers;
@@ -7,9 +7,8 @@
     /// <summary>
     /// Parses Cookie header.
     /// </summary>
-    public class CookieHeaderCreator:IHeaderCreator
+    public class CookieHeaderCreator : IHeaderCreator
     {
-
         /// <summary>
         /// Parse a header
         /// </summary>
@@ -19,33 +18,25 @@
         /// <exception cref="System.FormatException">Header value is not of the expected format.</exception>
         public IHeader Create(string name, ITextReader reader)
         {
-            //key: "value"; key: "value"
-
+            if (reader == null) return null;
             var cookies = new RequestCookieCollection();
-            while (!reader.EoF)
+            while (!reader.Eof)
             {
-                // read name
                 string cookieName = reader.ReadToEnd("=;");
 
-                // cookie with value?
                 if (reader.Current == '=')
                 {
                     reader.Consume();
                     reader.ConsumeWhiteSpaces();
 
-                    // is value quoted or not?
                     string value = reader.Current == '"' ? reader.ReadQuotedString() : reader.ReadToEnd(";");
                     cookies.Add(new RequestCookie(cookieName, value));
-                }
-                //else
-                //    cookies.Add(new RequestCookie(cookieName, string.Empty));
+                } 
 
-                // consume whitespaces and cookie separator
                 reader.ConsumeWhiteSpaces(';');
             }
 
             return new CookieHeader(cookies);
         }
-
     }
 }

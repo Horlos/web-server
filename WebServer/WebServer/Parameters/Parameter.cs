@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using WebServer.Infrastructure;
-
-namespace WebServer.Parameters
+﻿namespace Webserver.Parameters
 {
+    using System.Collections;
+    using System.Collections.Generic;
+    using Infrastructure;
+
     /// <summary>
     /// 
     /// </summary>
@@ -45,18 +45,33 @@ namespace WebServer.Parameters
         /// <summary>
         /// 
         /// </summary>
+        public int Count
+        {
+            get { return _values.Count; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string[] Items { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
+        public string this[int i]
+        {
+            get { return _values[i]; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <returns></returns>
         public IIterator<string> GetIterator()
         {
             return new Iterator<string>(this);
-        }
-
-        public int Count { get { return _values.Count; } }
-        public string[] Items { get; set; }
-
-        public string this[int i]
-        {
-            get { return _values[i]; }
         }
 
         /// <summary>

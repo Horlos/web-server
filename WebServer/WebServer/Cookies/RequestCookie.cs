@@ -1,4 +1,4 @@
-﻿namespace WebServer.Cookies
+﻿namespace Webserver.Cookies
 {
     using System;
     using System.Web;
@@ -13,12 +13,12 @@
         private string _value;
 
         /// <summary>
-        /// Constructor.
+        /// Initializes a new instance of the <see cref="RequestCookie"/>.
         /// </summary>
         /// <param name="id">Cookie identifier</param>
         /// <param name="content">Cookie content</param>
-        /// <exception cref="ArgumentNullException">id or content is null.</exception>
-        /// <exception cref="ArgumentException">id is empty.</exception>
+        /// <exception cref="ArgumentNullException">Id or content is null.</exception>
+        /// <exception cref="ArgumentException">Id is empty.</exception>
         public RequestCookie(string id, string content)
         {
             if (string.IsNullOrEmpty(id)) throw new ArgumentNullException("id");
@@ -26,15 +26,6 @@
 
             _name = id;
             _value = content;
-        }
-
-        /// <summary>
-        /// Gets the cookie HTML representation.
-        /// </summary>
-        /// <returns>cookie string</returns>
-        public override string ToString()
-        {
-            return string.Format("{0}={1}; ", HttpUtility.UrlEncode(_name), HttpUtility.UrlEncode(_value));
         }
 
         /// <summary>
@@ -55,6 +46,15 @@
         {
             get { return _value; }
             set { _value = value; }
+        }
+
+        /// <summary>
+        /// Gets the cookie HTML representation.
+        /// </summary>
+        /// <returns>cookie string</returns>
+        public override string ToString()
+        {
+            return string.Format("{0}={1}; ", HttpUtility.UrlEncode(_name), HttpUtility.UrlEncode(_value));
         }
     }
 }

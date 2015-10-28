@@ -1,4 +1,4 @@
-﻿namespace WebServer.Parsers
+﻿namespace Webserver.Parsers
 {
     using System;
 
@@ -6,7 +6,7 @@
     /// Used to define which headers a parse is for.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
-    public class CreateHeaderForAttribute : Attribute
+    public sealed class CreateHeaderForAttribute : Attribute
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateHeaderForAttribute"/> class.
@@ -23,4 +23,3 @@
         public string HeaderName { get; private set; }
     }
 }
-

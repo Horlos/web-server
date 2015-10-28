@@ -1,11 +1,10 @@
-﻿using WebServer.Readers;
-
-namespace WebServer.Headers
+﻿namespace Webserver.Headers
 {
     using System;
     using System.Collections.Generic;
     using System.Reflection;
     using Parsers;
+    using Readers;
 
     /// <summary>
     /// Used to build headers.
@@ -19,7 +18,6 @@ namespace WebServer.Headers
             new ObjectPool<StringReader>(() => new StringReader(string.Empty));
 
         private readonly IHeaderCreator _stringCreator = new StringHeaderCreator();
-
 
         /// <summary>
         /// Add a parser
@@ -56,6 +54,31 @@ namespace WebServer.Headers
         }
 
         /// <summary>
+        /// Parse a header.
+        /// </summary>
+        /// <param name="name">Name of header</param>
+        /// <param name="value">Header value</param>
+        /// <returns>Header.</returns>
+        /// <exception cref="FormatException">Value is not a well formatted header value.</exception>
+        public IHeader CreateHeader(string name, string value)
+        {
+            IHeaderCreator creator;
+            if (!_parsers.TryGetValue(name, out creator))
+                creator = _stringCreator;
+
+            StringReader reader = _readers.Dequeue();
+            reader.Assign(value);
+            try
+            {
+                return creator.Create(name, reader);
+            }
+            finally
+            {
+                _readers.Enqueue(reader);
+            }
+        }
+
+        /// <summary>
         /// Create a header parser
         /// </summary>
         /// <param name="type"><see cref="IHeaderCreator"/> implementation.</param>
@@ -81,31 +104,6 @@ namespace WebServer.Headers
                     continue;
 
                 _parsers[attribute.HeaderName] = parser;
-            }
-        }
-
-        /// <summary>
-        /// Parse a header.
-        /// </summary>
-        /// <param name="name">Name of header</param>
-        /// <param name="value">Header value</param>
-        /// <returns>Header.</returns>
-        /// <exception cref="FormatException">Value is not a well formatted header value.</exception>
-        public IHeader CreateHeader(string name, string value)
-        {
-            IHeaderCreator creator;
-            if (!_parsers.TryGetValue(name, out creator))
-                creator = _stringCreator;
-
-            StringReader reader = _readers.Dequeue();
-            reader.Assign(value);
-            try
-            {
-                return creator.Create(name, reader);
-            }
-            finally
-            {
-                _readers.Enqueue(reader);
             }
         }
     }

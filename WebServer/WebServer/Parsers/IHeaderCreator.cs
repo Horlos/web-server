@@ -1,4 +1,4 @@
-﻿namespace WebServer.Parsers
+﻿namespace Webserver.Parsers
 {
     using Headers;
     using Readers;

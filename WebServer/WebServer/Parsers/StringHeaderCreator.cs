@@ -1,4 +1,4 @@
-﻿namespace WebServer.Parsers
+﻿namespace Webserver.Parsers
 {
     using Headers;
     using Readers;
@@ -17,6 +17,7 @@
         /// <exception cref="System.FormatException">Header value is not of the expected format.</exception>
         public IHeader Create(string name, ITextReader reader)
         {
+            if (reader == null) return null;
             var value = reader.ReadToEnd();
             return new StringHeader(name, value);
         }

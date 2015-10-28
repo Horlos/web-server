@@ -1,7 +1,7 @@
-﻿namespace WebServer
+﻿namespace Webserver
 {
     /// <summary>
-    /// The enum of common methods for HTTP/1.1.
+    /// The common methods for HTTP/1.1.
     /// </summary>
     public enum RequestMethodType
     {

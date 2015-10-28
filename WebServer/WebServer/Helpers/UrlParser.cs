@@ -1,8 +1,7 @@
-﻿using System;
-using WebServer.Parameters;
-
-namespace WebServer.Helpers
+﻿namespace Webserver.Helpers
 {
+    using Parameters;
+
     /// <summary>
     /// Parses query string
     /// </summary>
@@ -15,7 +14,10 @@ namespace WebServer.Helpers
         /// <returns></returns>
         public static ParameterCollection Parse(string queryString)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(queryString))
+                return null;
+
+            return new ParameterCollection();
         }
     }
 }

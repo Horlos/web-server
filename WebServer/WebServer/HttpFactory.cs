@@ -1,4 +1,4 @@
-﻿namespace WebServer
+﻿namespace Webserver
 {
     using System;
 
@@ -23,7 +23,7 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="constructorArguments"></param>
         /// <returns></returns>
-        public T Get<T>(params object[] constructorArguments) where T : class
+        public T Create<T>(params object[] constructorArguments) where T : class
         {
             throw new NotImplementedException();
         }

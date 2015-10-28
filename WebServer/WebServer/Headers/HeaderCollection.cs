@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using WebServer.Infrastructure;
-
-namespace WebServer.Headers
+﻿namespace Webserver.Headers
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Infrastructure;
+
     public class HeaderCollection : IHeaderCollection
     {
         private readonly HeaderFactory _factory;
@@ -20,6 +20,38 @@ namespace WebServer.Headers
         public HeaderCollection(HeaderFactory factory)
         {
             _factory = factory;
+        }
+
+        public int Count
+        {
+            get { return _headers.Count; }
+        }
+
+        public IHeader[] Items
+        {
+            get { return _headers.Values.ToArray(); }
+        }
+
+        IHeader IAggregate<IHeader>.this[int i]
+        {
+            get { return Items[i]; }
+        }
+
+        public IHeader this[string name]
+        {
+            get
+            {
+                IHeader header;
+                return _headers.TryGetValue(name, out header) ? header : null;
+            }
+
+            set
+            {
+                if (value == null)
+                    _headers.Remove(name);
+                else
+                    _headers[name] = value;
+            }
         }
 
         /// <summary>
@@ -41,38 +73,14 @@ namespace WebServer.Headers
             _headers[name] = value;
         }
 
-        #region IHeaderCollection Members
+        public IHeader Create()
+        {
+            return _factory.CreateHeader(string.Empty, string.Empty);
+        }
 
         public IIterator<IHeader> GetIterator()
         {
             return new HeaderIterator(this);
-        }
-
-        public int Count
-        {
-            get { return _headers.Count; }
-        }
-        public IHeader[] Items { get { return _headers.Values.ToArray(); } }
-
-        IHeader IAggregate<IHeader>.this[int i]
-        {
-            get { return Items[i]; }
-        }
-
-        public IHeader this[string name]
-        {
-            get
-            {
-                IHeader header;
-                return _headers.TryGetValue(name, out header) ? header : null;
-            }
-            set
-            {
-                if (value == null)
-                    _headers.Remove(name);
-                else
-                    _headers[name] = value;
-            }
         }
 
         /// <summary>
@@ -88,8 +96,6 @@ namespace WebServer.Headers
                 return header as T;
             return null;
         }
-
-        #endregion
 
         /// <summary>
         /// 

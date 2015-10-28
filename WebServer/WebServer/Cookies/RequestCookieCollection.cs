@@ -1,4 +1,4 @@
-﻿namespace WebServer.Cookies
+﻿namespace Webserver.Cookies
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -11,6 +11,14 @@
     {
         private readonly IDictionary<string, RequestCookie> _items = new Dictionary<string, RequestCookie>();
 
+        public RequestCookieCollection() : this(0)
+        {
+        }
+
+        public RequestCookieCollection(int size) : base(size)
+        {
+        }
+
         /// <summary>
         ///  Gets the count of cookies in the collection.
         /// </summary>
@@ -22,7 +30,10 @@
         /// <summary>
         /// 
         /// </summary>
-        public override RequestCookie[] Items { get { return _items.Values.ToArray(); } }
+        public override RequestCookie[] Items
+        {
+            get { return _items.Values.ToArray(); }
+        }
 
         /// <summary>
         /// 
@@ -42,7 +53,6 @@
         {
             throw new System.NotImplementedException();
         }
-
        
         /// <summary>
         /// 
@@ -51,14 +61,6 @@
         public override IIterator<RequestCookie> GetIterator()
         {
             throw new System.NotImplementedException();
-        }
-
-        public RequestCookieCollection() : this(0)
-        {
-        }
-
-        public RequestCookieCollection(int size) : base(size)
-        {
         }
     }
 }

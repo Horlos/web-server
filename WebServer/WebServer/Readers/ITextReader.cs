@@ -1,4 +1,4 @@
-﻿namespace WebServer.Readers
+﻿namespace Webserver.Readers
 {
     /// <summary>
     /// Base interface to read string tokens from different sources.
@@ -16,7 +16,7 @@
         /// <summary>
         /// Gets if end of buffer have been reached.
         /// </summary>
-        bool EoF { get; }
+        bool Eof { get; }
 
         /// <summary>
         /// Gets if more bytes can be processed.
@@ -73,8 +73,8 @@
         /// <summary>
         /// Consume specified characters.
         /// </summary>
-        /// <param name="chars">One or more characters.</param>
-        void Consume(params char[] chars);
+        /// <param name="values">One or more characters.</param>
+        void Consume(params char[] values);
 
         /// <summary>
         /// Consumes horizontal white spaces (space and tab).
@@ -131,7 +131,6 @@
         /// Will not consume the delimiter.
         /// </remarks>
         string ReadToEnd();
-
 
         /// <summary>
         /// Read to end of buffer, or until specified delimiter is found.

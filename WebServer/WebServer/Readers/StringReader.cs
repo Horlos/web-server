@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace WebServer.Readers
+﻿namespace Webserver.Readers
 {
+    using System;
+
     /// <summary>
     /// Used to read from a string object.
     /// </summary>
@@ -25,26 +25,6 @@ namespace WebServer.Readers
         {
         }
 
-        private string GetString(int startIndex, int endIndex)
-        {
-            return _buffer.Substring(startIndex, endIndex - startIndex);
-        }
-
-        private string GetString(int startIndex, int endIndex, bool trimEnd)
-        {
-            if (trimEnd)
-            {
-                if (endIndex > 0)
-                    --endIndex;
-                while (endIndex > 0 && (_buffer[endIndex] == ' ' || _buffer[endIndex] == '\t'))
-                    --endIndex;
-                ++endIndex;
-            }
-            return _buffer.Substring(startIndex, endIndex - startIndex);
-        }
-
-        #region ITextReader Members
-
         /// <summary>
         /// Gets or sets line number.
         /// </summary>
@@ -54,7 +34,7 @@ namespace WebServer.Readers
         /// Gets if end of buffer have been reached
         /// </summary>
         /// <value></value>
-        public bool EoF
+        public bool Eof
         {
             get { return Index >= Length; }
         }
@@ -119,10 +99,9 @@ namespace WebServer.Readers
         /// <exception cref="ArgumentException">buffer needs to be of type string</exception>
         public void Assign(object buffer, int offset, int count)
         {
-            if (!(buffer is string))
+            _buffer = buffer as string;
+            if (_buffer == null)
                 throw new ArgumentException("buffer needs to be of type string", "buffer");
-
-            _buffer = (string)buffer;
             Index = offset;
             Length = count;
         }
@@ -135,9 +114,9 @@ namespace WebServer.Readers
         /// <exception cref="ArgumentException">buffer needs to be of type string</exception>
         public void Assign(object buffer)
         {
-            if (!(buffer is string))
+            _buffer = buffer as string;
+            if (_buffer == null)
                 throw new ArgumentException("buffer needs to be of type string", "buffer");
-            _buffer = (string)buffer;
             Index = 0;
             Length = _buffer.Length;
         }
@@ -162,7 +141,7 @@ namespace WebServer.Readers
                 Consume();
 
             // EOF? Then we havent enough bytes.
-            if (EoF)
+            if (Eof)
             {
                 Index = startIndex;
                 return null;
@@ -204,7 +183,7 @@ namespace WebServer.Readers
             int startPos = Index;
             Consume();
             string buffer = string.Empty;
-            while (!EoF)
+            while (!Eof)
             {
                 switch (Current)
                 {
@@ -234,7 +213,10 @@ namespace WebServer.Readers
         /// <exception cref="InvalidOperationException"><c>InvalidOperationException</c>.</exception>
         public string ReadToEnd(string delimiters)
         {
-            if (EoF)
+            if (Eof)
+                return string.Empty;
+
+            if (string.IsNullOrEmpty(delimiters))
                 return string.Empty;
 
             int startIndex = Index;
@@ -242,7 +224,7 @@ namespace WebServer.Readers
             bool isDelimitersNewLine = delimiters.IndexOfAny(new[] { '\r', '\n' }) != -1;
             while (true)
             {
-                if (EoF)
+                if (Eof)
                     return GetString(startIndex, Index);
 
                 if (delimiters.IndexOf(Current) != -1)
@@ -278,14 +260,14 @@ namespace WebServer.Readers
         /// <exception cref="InvalidOperationException"><c>InvalidOperationException</c>.</exception>
         public string ReadToEnd(char delimiter)
         {
-            if (EoF)
+            if (Eof)
                 return string.Empty;
 
             int startIndex = Index;
 
             while (true)
             {
-                if (EoF)
+                if (Eof)
                     return GetString(startIndex, Index);
 
                 if (Current == delimiter)
@@ -306,6 +288,8 @@ namespace WebServer.Readers
         /// <param name="chars">One or more characters.</param>
         public void Consume(params char[] chars)
         {
+            if (chars == null) return;
+
             while (HasMore)
             {
                 bool found = false;
@@ -315,6 +299,7 @@ namespace WebServer.Readers
                     found = true;
                     break;
                 }
+
                 if (!found)
                     return;
 
@@ -341,7 +326,6 @@ namespace WebServer.Readers
             return _buffer[Index++];
         }
 
-
         /// <summary>
         /// Will read until specified delimiter is found.
         /// </summary>
@@ -356,14 +340,14 @@ namespace WebServer.Readers
         /// <exception cref="InvalidOperationException"><c>InvalidOperationException</c>.</exception>
         public string ReadUntil(char delimiter)
         {
-            if (EoF)
+            if (Eof)
                 return null;
 
             int startIndex = Index;
 
             while (true)
             {
-                if (EoF)
+                if (Eof)
                 {
                     Index = startIndex;
                     return null;
@@ -394,15 +378,18 @@ namespace WebServer.Readers
         /// <exception cref="InvalidOperationException"><c>InvalidOperationException</c>.</exception>
         public string ReadUntil(string delimiters)
         {
-            if (EoF)
+            if (Eof)
                 return null;
 
             int startIndex = Index;
 
+            if (string.IsNullOrEmpty(delimiters))
+                return null;
+
             bool isDelimitersNewLine = delimiters.IndexOfAny(new[] { '\r', '\n' }) != -1;
             while (true)
             {
-                if (EoF)
+                if (Eof)
                 {
                     Index = startIndex;
                     return null;
@@ -445,7 +432,7 @@ namespace WebServer.Readers
         /// </summary>
         /// <param name="ch">Character to find.</param>
         /// <returns>
-        /// 	<c>true</c> if found; otherwise <c>false</c>.
+        /// <c>true</c> if found; otherwise <c>false</c>.
         /// </returns>
         public bool Contains(char ch)
         {
@@ -460,6 +447,36 @@ namespace WebServer.Readers
             return false;
         }
 
-        #endregion
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="startIndex"></param>
+        /// <param name="endIndex"></param>
+        /// <returns></returns>
+        private string GetString(int startIndex, int endIndex)
+        {
+            return _buffer.Substring(startIndex, endIndex - startIndex);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="startIndex"></param>
+        /// <param name="endIndex"></param>
+        /// <param name="trimEnd"></param>
+        /// <returns></returns>
+        private string GetString(int startIndex, int endIndex, bool trimEnd)
+        {
+            if (trimEnd)
+            {
+                if (endIndex > 0)
+                    --endIndex;
+                while (endIndex > 0 && (_buffer[endIndex] == ' ' || _buffer[endIndex] == '\t'))
+                    --endIndex;
+                ++endIndex;
+            }
+
+            return _buffer.Substring(startIndex, endIndex - startIndex);
+        }
     }
 }

@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using WebServer.Infrastructure;
-
-namespace WebServer.Parameters
+﻿namespace Webserver.Parameters
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using Infrastructure;
+
     /// <summary>
     /// Collection of parameters.
     /// </summary>
@@ -21,23 +21,27 @@ namespace WebServer.Parameters
         /// </remarks>
         public ParameterCollection(params IParameterCollection[] collections)
         {
-            foreach (IParameterCollection collection in collections)
-            {
-                if (collection != null)
+            if (collections != null)
+                foreach (IParameterCollection collection in collections)
                 {
-                    foreach (IParameter p in collection)
+                    if (collection != null)
                     {
-                        foreach (string value in p)
-                            Add(p.Name, value);
+                        foreach (IParameter p in collection)
+                        {
+                            foreach (string value in p)
+                                Add(p.Name, value);
+                        }
                     }
                 }
-            }
         }
 
         /// <summary>
         /// 
         /// </summary>
-        public int Count { get { return _items.Count; } }
+        public int Count
+        {
+            get { return _items.Count; }
+        }
 
         public IParameter[] Items { get; set; }
 
@@ -81,7 +85,6 @@ namespace WebServer.Parameters
             IParameter parameter;
             if (_items.TryGetValue(name, out parameter))
                 parameter.Values.Add(value);
-
             else
             {
                 parameter = new Parameter(name, value);

@@ -1,10 +1,9 @@
-﻿using WebServer.Infrastructure;
-
-namespace WebServer.Parameters
+﻿namespace Webserver.Parameters
 {
+    using Infrastructure;
+
     public interface IParameterCollection : IAggregate<IParameter>
     {
-
         /// <summary>
         /// Gets last value of an parameter.
         /// </summary>

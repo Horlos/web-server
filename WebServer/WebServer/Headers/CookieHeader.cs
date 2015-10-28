@@ -1,4 +1,4 @@
-﻿namespace WebServer.Headers
+﻿namespace Webserver.Headers
 {
     using System;
     using Cookies;

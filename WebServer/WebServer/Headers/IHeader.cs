@@ -1,4 +1,4 @@
-﻿namespace WebServer.Headers
+﻿namespace Webserver.Headers
 {
     /// <summary>
     /// Header in a message

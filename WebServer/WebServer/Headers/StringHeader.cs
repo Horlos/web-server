@@ -1,4 +1,4 @@
-﻿namespace WebServer.Headers
+﻿namespace Webserver.Headers
 {
     /// <summary>
     /// Used to store all headers that aren't recognized.

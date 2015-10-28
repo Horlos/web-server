@@ -1,26 +1,34 @@
-﻿using System.Collections.Generic;
-
-namespace WebServer.Infrastructure
+﻿namespace Webserver.Infrastructure
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IAggregate<out T> : IEnumerable<T>
+    public interface IAggregate<T> : IEnumerable<T>
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        IIterator<T> GetIterator();
-
         /// <summary>
         /// Gets number of parameters.
         /// </summary>
         int Count { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         T[] Items { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns></returns>
         T this[int i] { get; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        IIterator<T> GetIterator();
     }
 }

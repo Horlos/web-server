@@ -1,6 +1,7 @@
-﻿namespace WebServer.Parsers
+﻿namespace Webserver.Parsers
 {
     using System;
+    using System.Globalization;
     using Headers;
     using Readers;
 
@@ -18,10 +19,11 @@
         /// <exception cref="FormatException">Header value is not of the expected format.</exception>
         public IHeader Create(string name, ITextReader reader)
         {
+            if (reader == null) return null;
             string temp = reader.ReadToEnd();
             int value;
             if (!int.TryParse(temp, out value))
-                throw new FormatException(string.Format("Header '{0}' do not contain a numerical value ('{1}').", name, temp));
+                throw new FormatException(string.Format("Header '{0}' do not contain a numerical value ('{1}').", name, temp, CultureInfo.CurrentCulture));
             return new NumericHeader(name, value);
         }
     }

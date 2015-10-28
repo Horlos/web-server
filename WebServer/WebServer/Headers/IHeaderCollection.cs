@@ -1,7 +1,7 @@
-﻿using WebServer.Infrastructure;
-
-namespace WebServer.Headers
+﻿namespace Webserver.Headers
 {
+    using Infrastructure;
+
     /// <summary>
     /// Collection of headers.
     /// </summary>

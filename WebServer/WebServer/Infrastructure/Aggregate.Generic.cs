@@ -1,4 +1,4 @@
-﻿namespace WebServer.Infrastructure
+﻿namespace Webserver.Infrastructure
 {
     using System.Collections;
     using System.Collections.Generic;
@@ -7,7 +7,7 @@
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Aggregate<T> : IAggregate<T> where T: class
+    public class Aggregate<T> : IAggregate<T> where T : class
     {
         private T[] _items;
 
@@ -19,20 +19,17 @@
         /// <summary>
         /// 
         /// </summary>
-        public virtual T[] Items { get { return _items; } }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        public virtual int Count { get { return _items.Length; } }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
-        public virtual IIterator<T> GetIterator()
+        public virtual T[] Items
         {
-            return new Iterator<T>(this);
+            get { return _items; }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual int Count
+        {
+            get { return _items.Length; }
         }
 
         /// <summary>
@@ -44,6 +41,15 @@
         {
             get { return _items[index]; }
             set { Add(value); }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public virtual IIterator<T> GetIterator()
+        {
+            return new Iterator<T>(this);
         }
 
         /// <summary>

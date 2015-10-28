@@ -1,5 +1,7 @@
-﻿namespace WebServer.Headers
+﻿namespace Webserver.Headers
 {
+    using System.Globalization;
+
     /// <summary>
     /// 
     /// </summary>
@@ -17,9 +19,19 @@
         }
 
         /// <summary>
+        /// Gets header name
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
         /// Gets value
         /// </summary>
         public long Value { get; set; }
+
+        public string HeaderValue
+        {
+            get { return Value.ToString(CultureInfo.InvariantCulture); }
+        }
 
         /// <summary>
         /// Returns data formatted as a HTTP header value.
@@ -29,21 +41,7 @@
         /// </returns>
         public override string ToString()
         {
-            return Value.ToString();
+            return Value.ToString(CultureInfo.InvariantCulture);
         }
-
-        #region IHeader Members
-
-        /// <summary>
-        /// Gets header name
-        /// </summary>
-        public string Name { get; set; }
-
-        public string HeaderValue
-        {
-            get { return Value.ToString(); }
-        }
-
-        #endregion
     }
 }
