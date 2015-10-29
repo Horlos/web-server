@@ -109,6 +109,9 @@
     <None Include="packages.config" />
     <None Include="WebServer.ruleset" />
   </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDictionary Include="XMLFile1.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(StyleCopTargets)" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
