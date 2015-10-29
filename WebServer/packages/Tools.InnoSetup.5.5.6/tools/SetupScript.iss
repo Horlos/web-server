@@ -32,7 +32,7 @@ DefaultGroupName={#Name}
 
 ; Каталог, куда будет записан собранный setup и имя исполняемого файла
 OutputDir=..\..\..\Install
-OutputBaseFileName=Setup
+OutputBaseFileName={#Name}-{#Version}
 
 ; Файл иконки
 ;SetupIconFile=E:\work\Mirami\Mirami\icon.ico
