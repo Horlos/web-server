@@ -1,0 +1,876 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="WebServer.HttpContext" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAgACNRBAQAAACAAAKCIAAYgwAAAANAAiCAIIA=</HashCode>
+      <FileName>Core\HttpContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.HttpListener" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAABAACIDEABAIAgABAGAKABAAEACIAJCAACABAA=</HashCode>
+      <FileName>Core\HttpListener.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Request" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="35.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAoAAAAAACQACBEACAAhAgSBiAAAABAECIAYACUABII=</HashCode>
+      <FileName>Core\Request.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Response" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAoAAAAEACQEDBMACAABAASAiAAAABAEAAAYAAQAFAI=</HashCode>
+      <FileName>Core\Response.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.BodyEventArgs" Collapsed="true">
+    <Position X="25.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAQAAAAAAAAAAAAAAAAAwAA=</HashCode>
+      <FileName>EventArgs\BodyEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.ContinueEventArgs" Collapsed="true">
+    <Position X="35.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\ContinueEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.ErrorPageEventArgs" Collapsed="true">
+    <Position X="32.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgBAQAAAAAAAAAAAAAAAgAAAAABAAAAAAAA=</HashCode>
+      <FileName>EventArgs\ErrorPageEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.FactoryRequestEventArgs" Collapsed="true">
+    <Position X="34" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\FactoryRequestEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.FactoryResponseEventArgs" Collapsed="true">
+    <Position X="35.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\FactoryResponseEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.HeaderEventArgs" Collapsed="true">
+    <Position X="30.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>EventArgs\HeaderEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.RequestEventArgs" Collapsed="true">
+    <Position X="23.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgBAQAAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\RequestEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.RequestLineEventArgs" Collapsed="true">
+    <Position X="25.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAQAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\RequestLineEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.ResponseLineEventArgs" Collapsed="true">
+    <Position X="32.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\ResponseLineEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.SocketFilterEventArgs" Collapsed="true">
+    <Position X="21.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAABAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventArgs\SocketFilterEventArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.HttpFile" Collapsed="true">
+    <Position X="23.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAUAAAAAAA=</HashCode>
+      <FileName>HttpFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.HttpFileCollection" Collapsed="true">
+    <Position X="5.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABQEAA=</HashCode>
+      <FileName>HttpFileCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.HttpServer" Collapsed="true">
+    <Position X="30.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIACBBQACQAGADAQACggAEAIAAgAAEAMYJCAAAgAAA=</HashCode>
+      <FileName>HttpServer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.HttpFactory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAIAAAACMAgAACAAAAAIAAAYEAQAAAAJBBAAgA=</HashCode>
+      <FileName>Infrastructure\HttpFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.ObjectPool&lt;T&gt;" Collapsed="true">
+    <Position X="30.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAABAABBAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\ObjectPool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.MessageFactory" Collapsed="true">
+    <Position X="35.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAgAAAgAAAAAAAAAAAAAAACABBACAA=</HashCode>
+      <FileName>MessageFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.MessageFactoryContext" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAACAABAEAQAAABAAAIQEwAAAAEAACQAAAAAA=</HashCode>
+      <FileName>MessageFactoryContext.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.RequestContext" Collapsed="true">
+    <Position X="21.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAgAAAAAAAACAAAAA=</HashCode>
+      <FileName>RequestContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.ResponseWriter" Collapsed="true">
+    <Position X="34" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAABAAACAAAAAAAEAAAAAAIAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>ResponseWriter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Cookies.RequestCookie" Collapsed="true">
+    <Position X="5.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAIAAAAAAAAAAEAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Cookies\RequestCookie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Cookies.RequestCookieCollection" Collapsed="true">
+    <Position X="0.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAACAAABAQAABAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Cookies\RequestCookieCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Cookies.ResponseCookie" Collapsed="true">
+    <Position X="5.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAACAAIEAAAAAAAAAAAAAAAAIAAAAAAAAAg=</HashCode>
+      <FileName>Cookies\ResponseCookie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Cookies.ResponseCookieCollection" Collapsed="true">
+    <Position X="3" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAACAAAAAQAABAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Cookies\ResponseCookieCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Core.ReusableSocketNetworkStream" Collapsed="true">
+    <Position X="35.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAACAAAAAAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Core\ReusableSocketNetworkStream.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Decoders.BodyDecoderCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAACBAACAAAAAQAAAAAAAAEAAEAQAAAAAI=</HashCode>
+      <FileName>Decoders\BodyDecoderCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Decoders.DecodedData" Collapsed="true">
+    <Position X="28.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAIA=</HashCode>
+      <FileName>Decoders\DecodedData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Decoders.HttpMultipart" Collapsed="true">
+    <Position X="27" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>sABEAAAgAAAAAAAiAABAAQAAAACAAIAAAABQAIgCAAA=</HashCode>
+      <FileName>Decoders\HttpMultipart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Decoders.MultiPartDecoder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAIAAAAAAAAAAAAAAAAAAQQAAAAAA=</HashCode>
+      <FileName>Decoders\MultiPartDecoder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Decoders.UrlDecoder" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQQAAAAAA=</HashCode>
+      <FileName>Decoders\UrlDecoder.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Exceptions.BadRequestException" Collapsed="true">
+    <Position X="10.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\BadRequestException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Exceptions.CodeGeneratorException" Collapsed="true">
+    <Position X="30.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAJIAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Exceptions\CodeGeneratorException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Exceptions.ForbiddenException" Collapsed="true">
+    <Position X="13" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\ForbiddenException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Exceptions.HttpException" Collapsed="true">
+    <Position X="13" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\HttpException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Exceptions.InternalServerException" Collapsed="true">
+    <Position X="15.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\InternalServerException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Exceptions.ParserException" Collapsed="true">
+    <Position X="10.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\ParserException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Exceptions.TemplateException" Collapsed="true">
+    <Position X="34" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAEAAAAAAAAAAAAAAAAAAAAIAAAAAE=</HashCode>
+      <FileName>Exceptions\TemplateException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Headers.HeaderCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAACBBACAAAAAQAAAAAAEAEAAACAAAAAAI=</HashCode>
+      <FileName>Headers\Collections\HeaderCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Headers.HeaderParameterCollection" Collapsed="true">
+    <Position X="7.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Headers\Collections\HeaderParameterCollection.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Headers.ConnectionHeader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAIBAAAQAAAAAAAAAAYAAAAAAAAA=</HashCode>
+      <FileName>Headers\ConnectionHeader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Headers.ContentTypeHeader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAEAIBAAAQAAAAAAAAAAIAgAAAAAAA=</HashCode>
+      <FileName>Headers\ContentTypeHeader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Headers.CookieHeader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIBAAAQAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Headers\CookieHeader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Headers.DateHeader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAIBAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Headers\DataHeader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Headers.HeaderFactory" Collapsed="true">
+    <Position X="32.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAkAAABAAAAAAAAAAAEgAAAAAAAAAA=</HashCode>
+      <FileName>Headers\HeaderFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Headers.HeaderIterator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAACAABQAAEACAAACAAAAAACAAoAACAAAAAAA=</HashCode>
+      <FileName>Headers\HeaderIterator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Headers.NumericHeader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAIAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Headers\NumericHeader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Headers.StringHeader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAIAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Headers\StringHeader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Helpers.Check" Collapsed="true">
+    <Position X="28.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAEAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Helpers\Check.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Helpers.StrUtils" Collapsed="true">
+    <Position X="28.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QACAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAABAAIAAA=</HashCode>
+      <FileName>Helpers\StrUtils.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Helpers.UrlParser" Collapsed="true">
+    <Position X="23.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\UrlParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Infrastructure.AggregateCollection&lt;TKey, TValue&gt;" Collapsed="true">
+    <Position X="4" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAACBAECAAAAAQAABAAAAAEAAAAAAAAAAI=</HashCode>
+      <FileName>Infrastructure\AggregateCollection.Generic.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="WebServer.Infrastructure.Iterator&lt;T&gt;" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAIAAAACAABUAAEACAAACAAAAAAAAAoAACAAAAAAA=</HashCode>
+      <FileName>Infrastructure\Iterator.Generic.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Modules.FileModule" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAIAYAAAIAAAAgAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Modules\FileModule.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Parameters.Parameter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="32.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACBAACAAAAAQAAAAAAAAEAAAgAAAAACI=</HashCode>
+      <FileName>Parameters\Parameter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Parameters.ParameterCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="34" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQAAAAAAAACBAACAAAAAQAABAAAAAEAAAAAAEAAAI=</HashCode>
+      <FileName>Parameters\ParameterCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Parsers.CookieHeaderCreator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parsers\CookieHeaderCreator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Parsers.CreateHeaderForAttribute" Collapsed="true">
+    <Position X="25.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parsers\CreateHeaderForAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Parsers.HttpParser" Collapsed="true">
+    <Position X="28.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAGkADChAAAgBABCAAAIAAAAIEAAIoCAAAAQQAQABgA=</HashCode>
+      <FileName>Parsers\HttpParsesr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Parsers.NumericHeaderCreator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parsers\NumericHeaderCreator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Parsers.StringHeaderCreator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parsers\StringHeaderCreator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Readers.BufferReader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAUoAAAEIAAAAACIBQBgBFAAAAAAAAFgAAAQAAE=</HashCode>
+      <FileName>Readers\BufferReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Readers.StringReader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAUoAAAEIAAAAACIBQBgBFAAAAAAAAFAAAAQAAE=</HashCode>
+      <FileName>Readers\StringReader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Resources.EmbeddedResourceLoader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="30.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgIAAAABABAAAAJAAAAAAACAIAAYABAAAAAAgAEAAAA=</HashCode>
+      <FileName>Resources\EmbededResourcesLoader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Resources.FileResourcesLoader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="23.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYCAAIAAAACAABAQAAAAQAAAAAIAAAAAAAAgAEQAAg=</HashCode>
+      <FileName>Resources\FileResourcesLoader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.Resources.Resource" Collapsed="true">
+    <Position X="27" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Resources\Resource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.Resources.ResourceProvider" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAEAACAAAABAAAAAAAQAIAAIAAAAIAAAAAEAAAA=</HashCode>
+      <FileName>Resources\ResourceProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.TemplateEngine.ArgumentContainer" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAgAAAAQBAAIAAgAAAQAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\ArgumentContainer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.FileTemplateLoader" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="25.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAACAAIAAAAIAAAAAAAAAAAAAAAAAgAAAQ=</HashCode>
+      <FileName>TemplateEngine\FileTemplateLoader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.TemplateEngine.TemplateArguments" Collapsed="true">
+    <Position X="30.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAAAAAABAAAAACAAAAAAAAgAAAIAAQAAAAABQAAA=</HashCode>
+      <FileName>TemplateEngine\TemplateArguments.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.TemplateCompiler" Collapsed="true">
+    <Position X="32.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAEAAAAAAAAAAAAAAAAAQAAAAAAAQAAAAAAEA=</HashCode>
+      <FileName>TemplateEngine\TemplateCompiler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.TemplateManager" Collapsed="true">
+    <Position X="35.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIABAAAAAAAAAAJAAAAAgAAAQAAAAgQABIAAAAAAEA=</HashCode>
+      <FileName>TemplateEngine\TemplateManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.HamlGenerator" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="27" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAtwAGAAgAAAAAAIEACAEEAAIEACAEAAAAABAAAAIAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\HamlGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.LineInfo" Collapsed="true">
+    <Position X="34" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQUAQBpA0ABAIAAAIMYESQAAAAARAAAAAAGAAAIAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\LineInfo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.NodeList" Collapsed="true">
+    <Position X="25.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAABAAAAAAAAAAAAEAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\NodeList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Nodes.AttributeNode" Collapsed="true">
+    <Position X="14.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgEAAAAAAAAAACAAAAAAASAAAAAAIAAADAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Nodes\AttributeNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Nodes.ChildNode" Collapsed="true">
+    <Position X="14.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAEAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Nodes\ChildNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Nodes.ClassNode">
+    <Position X="17" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgMAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Nodes\ClassNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Nodes.DisplayCodeNode" Collapsed="true">
+    <Position X="19.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgEAAAAAAAAAAAAAAAAQACAAAAAAACAAAAAAAgAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Nodes\DisplayCodeNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Nodes.DocTypeTag" Collapsed="true">
+    <Position X="1.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEgEAAAAAAAAAAAAAAAAAACAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Nodes\DocTypeTag.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Nodes.IdNode">
+    <Position X="11" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgEAAAAAAAAAAAAABAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Nodes\IdNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Nodes.Node">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUwFAAJAAIEAAAAAAAUQAASAAAAAAACEAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Nodes\Node.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Nodes.PartialNode">
+    <Position X="3.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgEAAAAAAAAAAAAAAAAGACQAAAAAACAAAAAACAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Nodes\PartialNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Nodes.SilentCodeNode">
+    <Position X="12.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgEAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Nodes\SilentCodeNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Nodes.TagNode">
+    <Position X="5.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgMAAAAAAAAAAAAAAAAAQCAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Nodes\TagNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Nodes.TextNode">
+    <Position X="8" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgEAAAAAAAAAAAAAAAAAACAAAAAAAKAAAACAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Nodes\TextNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Rules.AttributesRule" Collapsed="true">
+    <Position X="0.5" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Rules\AttributesRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Rules.NewLineRule" Collapsed="true">
+    <Position X="2.75" Y="12.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Rules\NewLineRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WebServer.TemplateEngine.Rendering.Rules.Rule" Collapsed="true">
+    <Position X="1.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\Rendering\Rules\Rule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="WebServer.IHttpContext" Collapsed="true">
+    <Position X="27" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAJAAAAAAAAAAAAAAAAIgAAAAAEAAAAAIAA=</HashCode>
+      <FileName>Core\IHttpContext.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.IHttpListener" Collapsed="true">
+    <Position X="30.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAACIAEAAAAAAAAAEACABAAAACIABAAAAAAAA=</HashCode>
+      <FileName>Core\IHttpListener.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.IRequest" Collapsed="true">
+    <Position X="0.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAgAgABAAAAAAAACIAIAAQAAIA=</HashCode>
+      <FileName>Core\IRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.IResponse" Collapsed="true">
+    <Position X="3" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAEAAAAAAMAAAAAAAAAAAAAAAAAAAAIAAQAAAA=</HashCode>
+      <FileName>Core\IResponse.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.IMessage" Collapsed="true">
+    <Position X="2" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAABAAAAiAAAABAAAAAQAAAAAAA=</HashCode>
+      <FileName>IMessage.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.IHttpFactory" Collapsed="true">
+    <Position X="28.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\IHttpFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Decoders.IBodyDecoder" Collapsed="true">
+    <Position X="21.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQQAAAAAA=</HashCode>
+      <FileName>Decoders\IBodyDecoder.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Headers.IHeaderCollection" Collapsed="true">
+    <Position X="9.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Headers\Collections\IHeaderCollection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Headers.IHeader" Collapsed="true">
+    <Position X="23.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Headers\IHeader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Infrastructure.IAggregateCollection&lt;T&gt;" Collapsed="true">
+    <Position X="5.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAQAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Infrastructure\IAggregateCollection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Infrastructure.IAggregateCollection&lt;TKey, TValue&gt;" Collapsed="true">
+    <Position X="5.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\IAggregateCollection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Infrastructure.IIterator&lt;T&gt;" Collapsed="true">
+    <Position X="32.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Infrastructure\IIterator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Modules.IModule" Collapsed="true">
+    <Position X="34" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Modules\IModule.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Parameters.IParameter" Collapsed="true">
+    <Position X="5.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Parameters\IParameter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Parameters.IParameterCollection" Collapsed="true">
+    <Position X="7.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIQAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Parameters\IParameterCollection.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Parsers.IHeaderCreator" Collapsed="true">
+    <Position X="25.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Parsers\IHeaderCreator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Readers.ITextReader" Collapsed="true">
+    <Position X="30.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAUIAAAEIAAAAACIAQBgBFAAAAAAAAFAAAAQAAE=</HashCode>
+      <FileName>Readers\ITextReader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Resources.IResourceLoader" Collapsed="true">
+    <Position X="35.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAIAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Resources\IResourceLoader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Resources.IResourceProvider" Collapsed="true">
+    <Position X="21.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAACAAAABAAAAAAAQAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Resources\IResourceProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.Routing.IRouter" Collapsed="true">
+    <Position X="23.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Routing\IRouter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.TemplateEngine.ITemplateGenerator" Collapsed="true">
+    <Position X="25.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\ITemplateGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.TemplateEngine.ITemplateInfo" Collapsed="true">
+    <Position X="27" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAQAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\ITemplateInfo.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.TemplateEngine.ITemplateLoader" Collapsed="true">
+    <Position X="28.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAIAAAAIAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <FileName>TemplateEngine\ITemplateLoader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="WebServer.TemplateEngine.ITinyTemplate" Collapsed="true">
+    <Position X="32.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>TemplateEngine\ITinyTemplate.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="WebServer.ConnectionType" Collapsed="true">
+    <Position X="21.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAACAAAA=</HashCode>
+      <FileName>ConnectionType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="WebServer.ProcessingResult" Collapsed="true">
+    <Position X="23.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACBAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProcessingResult.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="WebServer.RequestMethodType" Collapsed="true">
+    <Position X="25.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIBAAAAAAAAACAEAAAAAAAAAAABAAAg=</HashCode>
+      <FileName>RequestMethodType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Delegate Name="WebServer.FactoryMethod" Collapsed="true">
+    <Position X="23.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Infrastructure\HttpFactory.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Delegate Name="WebServer.CreateHandler&lt;T&gt;" Collapsed="true">
+    <Position X="21.75" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Infrastructure\ObjectPool.cs</FileName>
+    </TypeIdentifier>
+  </Delegate>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
